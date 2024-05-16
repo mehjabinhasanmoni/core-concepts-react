@@ -1,23 +1,39 @@
-import logo from './logo.svg';
 import './App.css';
 
 function App() {
+
+  const products = [
+    {name : 'Laptop', price: 50000},
+    {name : 'Mobile', price: 20000},
+    {name : 'Mouse', price: 1500},
+  ]
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {
+        products.map(product => <Product name={product.name} price={product.price} warrenty='2 Years'></Product>)
+      }
+
+      {/* <Product name="Laptop" price="50000"></Product>
+      <Product name="Mobile" price="20000"></Product>
+      <Product name="Mouse" price="1500"></Product>
+       */}
+
+       {/* ------------------------- */}
+
+
+    </div>
+  );
+}
+
+
+
+function Product(props) {
+  console.log(props);
+  return(
+    <div className='product'>
+      <h2>Name : {props.name} </h2>
+      <p>Price : {props.price}</p>
+      <p>Warrenty : {props.warrenty}</p>
     </div>
   );
 }
